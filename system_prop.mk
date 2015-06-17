@@ -3,7 +3,7 @@
 
 # audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.disable=1 \
+    lpa.decode=true \
     persist.audio.fluence.mode=endfire \
     persist.audio.handset.mic=digital \
     ro.qc.sdk.audio.fluencetype=fluence
@@ -19,7 +19,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.service_mask=0x0 \
     persist.gps.qc_nlp_in_use=0 \
     ro.gps.agps_provider=1
-
-# camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.zsl.prop.enable=0

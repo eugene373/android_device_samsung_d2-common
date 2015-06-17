@@ -21,7 +21,7 @@ $(call inherit-product-if-exists, vendor/samsung/d2-common/d2-common-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay
 
 # Boot animation and screen size
-PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
@@ -33,10 +33,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 PRODUCT_COPY_FILES += \
     device/samsung/d2-common/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
     device/samsung/d2-common/audio/audio_policy.conf:system/etc/audio_policy.conf
-
-# Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -66,22 +62,6 @@ PRODUCT_COPY_FILES += \
 # Media configuration
 PRODUCT_COPY_FILES += \
     device/samsung/d2-common/media/media_profiles.xml:system/etc/media_profiles.xml
-
-# NFC
-PRODUCT_PACKAGES += \
-    libnfc \
-    libnfc_jni \
-    Nfc \
-    Tag \
-    com.android.nfc_extras
-
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
-endif
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 # Wifi
 PRODUCT_COPY_FILES += \
